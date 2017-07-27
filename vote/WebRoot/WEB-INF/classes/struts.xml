@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+	<package name="default" namespace="/" extends="struts-default">
+		<action name="inaction*" class="action.IndexAction" method="{1}">
+			<result name="vote" >vote.jsp</result>
+			<result name="check" >result.jsp</result>
+			<result name="tolist" type="redirectAction">inactionlist</result>
+			<result name="listind" >index.jsp</result>
+			<result name="input">login.jsp</result>
+			<result name="info">info.jsp</result>
+			<result name="mod">modify.jsp</result>
+		</action>
+		<action name="vote*" class="action.VoteAction" method="{1}">
+			<result name="tolist" type="redirectAction">inactionlist</result>
+		</action>
+	</package>
+	
+	<package name="tesjson" namespace="/"  extends="json-default" >
+		<action name="testjson" class="action.IndexAction" method="regcheck">
+			<result name="regjson" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+	</package>
+</struts>    
